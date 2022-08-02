@@ -1,0 +1,41 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# Dependencies
+
+/node_modules
+/.pnp
+.pnp.js
+
+# Testing
+
+coverage
+.nyc_output
+junit.xml
+
+# Builds
+
+/build
+
+# Logs
+
+*.log*
+
+# ES Lint
+.eslintcache
+# VS Code code runner extension generates this file
+tempCodeRunnerFile.*
+
+# Misc
+
+.DS_Store
+.env
+.env.local
+.env.development
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Powershell scripts
+*.ps1
+/tmp
+
