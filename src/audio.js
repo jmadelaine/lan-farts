@@ -41,6 +41,23 @@ export const playLibrarySound = async name => {
   return { name, url }
 }
 
+export const textToSpeech = async (text, voice) => {
+  player?.stop()
+  // TikTok's text to speech API
+  const res = await (
+    await fetch(
+      `https://api.allorigins.win/raw?url=https%3A%2F%2Fapi16-normal-useast5.us.tiktokv.com%2Fmedia%2Fapi%2Ftext%2Fspeech%2Finvoke%2F%3Ftext_speaker%3D${
+        voice ?? 'en_us_001'
+      }%26req_text%3D'}${text}`,
+      { method: 'POST' }
+    )
+  ).json()
+  const voiceString = res?.data?.v_str
+  if (!voiceString) return
+
+  player = new ffPlay(`data:audio/mpeg;base64,${voiceString}`)
+}
+
 export const stopSound = () => {
   player?.stop()
 }
