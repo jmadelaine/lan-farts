@@ -46,9 +46,9 @@ export const textToSpeech = async (text, voice) => {
   // TikTok's text to speech API
   const res = await (
     await fetch(
-      `https://api.allorigins.win/raw?url=https%3A%2F%2Fapi16-normal-useast5.us.tiktokv.com%2Fmedia%2Fapi%2Ftext%2Fspeech%2Finvoke%2F%3Ftext_speaker%3D${
-        voice ?? 'en_us_001'
-      }%26req_text%3D'}${text}`,
+      `https://api16-normal-useast5.us.tiktokv.com/media/api/text/speech/invoke/?text_speaker=${voice}&req_text=${encodeURIComponent(
+        text
+      )}&speaker_map_type=0`,
       { method: 'POST' }
     )
   ).json()
