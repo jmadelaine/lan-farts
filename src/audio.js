@@ -53,9 +53,9 @@ export const textToSpeech = async (text, voice) => {
     )
   ).json()
   const voiceString = res?.data?.v_str
-  if (!voiceString) return
-
+  if (!voiceString) return false
   player = new ffPlay(`data:audio/mpeg;base64,${voiceString}`)
+  return true
 }
 
 export const stopSound = () => {

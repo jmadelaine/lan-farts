@@ -71,8 +71,9 @@ app.get('/say/:text', async (req, res) => {
   const text = req.params.text
   if (!text) return res.send(wrappedResponse('<div>You need to provide some text, e.g. "/say/hello"</div>'))
   const voice = req.query.voice
-  await textToSpeech(text, voice)
-  res.send(wrappedResponse(`<div>Speaking: ${text}</div><div>Voice: ${voice}</div>`))
+  const success = await textToSpeech(text, voice)
+  if (success) res.send(wrappedResponse(`<div>Speaking: ${text}</div><div>Voice: ${voice}</div>`))
+  else res.send(wrappedResponse(`<div>Error generating audio</div>`))
 })
 
 app.get('/', async (req, res) => {
