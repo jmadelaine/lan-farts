@@ -125,6 +125,9 @@ app.get('/', async (req, res) => {
         <option value="en_male_m03_lobby">Tenor</option>
         <option value="en_male_m03_sunshine_soon">Sunshine Soon</option>
         <option value="en_female_f08_warmy_breeze">Warmy Breeze</option>
+        <option value="en_male_narration">Narrator</option>
+        <option value="en_male_funny">Wacky</option>
+        <option value="en_female_emotional">Peaceful</option>
       </select>
       <button type="submit">Say</button>
     </form>
